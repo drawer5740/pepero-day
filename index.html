@@ -190,7 +190,7 @@ input[type=range]{width:100%; accent-color:var(--red)}
       <input type="text" id="inA" value="A" maxlength="12" aria-label="Name">
       <div class="row">
         <label class="file">Upload character sprite<input type="file" id="fileA" accept="image/*"></label>
-        <label class="chk"><input type="checkbox" id="flipA"> 좌우 반전</label>
+        <label class="chk"><input type="checkbox" id="flipA"> Flip</label>
       </div>
       <div class="row"><label for="tiA">Dialogue (3-5 sentences pls)</label><textarea id="tiA"></textarea></div>
     </div>
@@ -199,13 +199,13 @@ input[type=range]{width:100%; accent-color:var(--red)}
       <input type="text" id="inB" value="B" maxlength="12" aria-label="Name">
       <div class="row">
         <label class="file">Upload character sprite<input type="file" id="fileB" accept="image/*"></label>
-        <label class="chk"><input type="checkbox" id="flipB"> 좌우 반전</label>
+        <label class="chk"><input type="checkbox" id="flipB"> Flip</label>
       </div>
       <div class="row"><label for="tiB">Dialogue (3-5 sentences pls)</label><textarea id="tiB"></textarea></div>
     </div>
 
     <div class="full">
-      <h2>Who will hoard it> <span class="val" id="shareVal"></span></h2>
+      <h2>Who will hoard it? <span class="val" id="shareVal"></span></h2>
       <input type="range" id="share" min="10" max="90" value="50" aria-label="A">
       <div class="ends"><span>B</span><span>A</span></div>
     </div>
@@ -316,7 +316,7 @@ function metrics(){
 function updateLabels(){
   const a = +$('share').value; m = a / 100;
   $('shareVal').textContent = `${$('inA').value || 'A'} ${a}% · ${$('inB').value || 'B'} ${100 - a}%`;
-  $('spdVal').textContent = (+$('spd').value).toFixed(1) + '배속';
+  $('spdVal').textContent = (+$('spd').value).toFixed(1) + '%';
   stick.classList.toggle('rev', chocSide === 'B');
 }
 const edges = () => [xL + len * m * S.p, xR - len * (1 - m) * S.p];

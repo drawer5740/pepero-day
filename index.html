@@ -879,7 +879,7 @@ $('vid').onclick = () => {
   startRecording(true);
 };
 document.addEventListener('visibilitychange', () => {
-  if (document.hidden && rec){ abortRec(); vmsg('Oi what are you doing? FOCUS ON ME.'); }
+  if (document.hidden && rec){ abortRec(); vmsg('Error! FOCUS ON ME WHEN I AM WORKING. Go re-record again.'); }
 });
 if (IN_APP) vmsg('Use a real browser.');
 function finishRec(){ if (rec && rec.mr && rec.mr.state !== 'inactive') rec.mr.stop(); }

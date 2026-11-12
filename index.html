@@ -1,11 +1,11 @@
-<!-- I just copied this from https://web.archive.org/web/20261111214306id_/https://dnjaqot100.github.io/pepero-day/ and englishified it sorry if it looks awful blame "dnjaqot100" -->
+<!-- I just copied this from https://web.archive.org/web/20261111214306id_/https://dnjaqot100.github.io/Pocky-day/ and englishified it sorry if it looks awful blame "dnjaqot100" -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pepero Day  11.11 · One for both of us</title>
+<title>Pocky Day  11.11 · One for both of us</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
@@ -141,8 +141,8 @@ input[type=range]{width:100%; accent-color:var(--red)}
 <body>
 <div class="wrap">
   <header>
-    <h1>Pepero Day 11.11</h1>
-    <p>One Pepero stick, shared by two until the very end</p>
+    <h1>Pocky Day 11.11</h1>
+    <p>One Pocky stick, shared by two until the very end</p>
   </header>
 
   <div class="stage" id="stage">
@@ -168,7 +168,7 @@ input[type=range]{width:100%; accent-color:var(--red)}
   <div class="vmsg" id="vst" hidden></div>
   <div class="result" id="result" hidden>
     <video id="rv" controls playsinline></video>
-    <div class="acts"><a id="rsave" class="dlbtn" href="#" download="pepero-day.mp4" role="button">⬇ Download</a><button id="rclose" class="ghost">Exit</button></div>
+    <div class="acts"><a id="rsave" class="dlbtn" href="#" download="Pocky-day.mp4" role="button">⬇ Download</a><button id="rclose" class="ghost">Exit</button></div>
     <div class="vhint">If the download doesn't work, long-press (or right-click) the video above to save it.</div>
   </div>
 
@@ -523,7 +523,7 @@ function render(){
   $('imgA').style.objectPosition = flip.A ? 'left center' : 'right center';
   $('imgB').style.objectPosition = flip.B ? 'right center' : 'left center';
   updateThoughts('A'); updateThoughts('B');
-  if (k >= 1 && !S.popped){ S.popped = true; msg.textContent = `${$('inA').value || 'A'} 💋 ${$('inB').value || 'B'}  해피 빼빼로데이!`; hearts(eA); kissSound(); }
+  if (k >= 1 && !S.popped){ S.popped = true; msg.textContent = `${$('inA').value || 'A'} <3 ${$('inB').value || 'B'}  Happy Pocky Day!`; hearts(eA); kissSound(); }
   msg.classList.toggle('show', k >= 1);
   fxc.setTransform(dpr, 0, 0, dpr, 0, 0); fxc.clearRect(0, 0, W, H); drawParticles(fxc);
   if (rec) drawFrame(rec.ctx, rec.sc);
@@ -586,7 +586,7 @@ function heart(g, x, y, s){
   g.bezierCurveTo(x - s * .9, y - s * .25, x - s * .4, y - s * .85, x, y - s * .35);
   g.bezierCurveTo(x + s * .4, y - s * .85, x + s * .9, y - s * .25, x, y + s * .35); g.fill();
 }
-function peperoMini(g, x, y, len, wid, rot, pal){
+function PockyMini(g, x, y, len, wid, rot, pal){
   g.save(); g.translate(x, y); g.rotate(rot);
   g.fillStyle = pal.cookie; rr(g, -len / 2, -wid * .3, len * .38, wid * .6, wid * .3); g.fill();
   g.fillStyle = pal.choc; rr(g, -len / 2 + len * .3, -wid / 2, len * .7, wid, wid / 2); g.fill();
@@ -608,7 +608,7 @@ function patternBitmap(sc){
   for (let r = 0, y = rowH * .5; y < H + rowH; r++, y += rowH){
     const off = (r % 2) * sp / 2;
     for (let i = -1, x = -sp; x < W + sp; i++, x += sp){
-      peperoMini(g, x + off + sp / 2, y, len, wid, ((r + i) % 2 ? 1 : -1) * .56, pal);
+      PockyMini(g, x + off + sp / 2, y, len, wid, ((r + i) % 2 ? 1 : -1) * .56, pal);
       g.fillStyle = pal.heart; heart(g, x + off, y, sp * .12);
     }
   }
@@ -706,7 +706,7 @@ function download(blob, name){
 }
 $('shot').onclick = () => {
   const { cv, c } = recCanvas(); drawFrame(c, cv.width / W);
-  cv.toBlob(b => b && download(b, 'pepero-day.png'), 'image/png');
+  cv.toBlob(b => b && download(b, 'Pocky-day.png'), 'image/png');
 };
 
 let rec = null, lastVideo = null;
@@ -722,7 +722,7 @@ function showVideo(blob, ext){
   if (lastVideo && lastVideo.url) URL.revokeObjectURL(lastVideo.url);
   lastVideo = { blob, ext, url: URL.createObjectURL(blob) };
   $('rv').src = lastVideo.url;
-  $('rsave').href = lastVideo.url; $('rsave').download = `pepero-day.${ext}`;
+  $('rsave').href = lastVideo.url; $('rsave').download = `Pocky-day.${ext}`;
   $('result').hidden = false; $('result').scrollIntoView({ behavior:'smooth', block:'center' });
 }
 function loadScript(src){

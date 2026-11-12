@@ -292,7 +292,7 @@ const S = { p:0, k:0, playing:false, last:0, t:0, popped:false, bob:0, tilt:0, c
 let bgColor = '#ffe3e8', floorColor = '#ffc9d3', msgColor = '#c8102e';
 const thoughts = { A:[], B:[] };
 const DEFAULT_THOUGHTS = {
-  A: ['I'm closer than you think…', 'Soooo sweet...', 'Are you blushing?', 'Almost..'],
+  A: ["I'm closer than you think…", 'Soooo sweet...', 'Are you blushing?', 'Almost..'],
   B: ['<3…', 'Stop eating so quick..', 'Where do i look?', 'Getting there so fast.']
 };
 const baseSec = () => Math.max(8, 2.4 * Math.max(thoughts.A.length, thoughts.B.length));
@@ -871,7 +871,9 @@ $('vid').onclick = () => {
   if (rec) return;
   vmsg('');
   if ((!window.MediaRecorder || !HTMLCanvasElement.prototype.captureStream) && !(window.VideoEncoder && window.VideoFrame)){
-    vmsg(IN_APP ? 'You CANT download using in-app browsers, use a REAL browser this time.');
+    if (IN_APP) {
+  vmsg('You CANT download using in-app browsers, use a REAL browser this time.');
+}
     return;
   }
   startRecording(true);

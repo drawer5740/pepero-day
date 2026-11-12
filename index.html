@@ -563,7 +563,7 @@ function tick(now){
   else { looping = false; if (rec) finishRec(); }
 }
 function kick(){ if (!looping){ looping = true; S.last = performance.now(); requestAnimationFrame(tick); } }
-function setPlayBtn(on){ $('play').textContent = on ? '❚❚ 정지' : '▶ 재생'; $('play').classList.toggle('on', on); }
+function setPlayBtn(on){ $('play').textContent = on ? '❚❚ Pause' : '▶ Play'; $('play').classList.toggle('on', on); }
 function start(){
   if (S.p >= 1 && S.k >= 1) reset();
   if (S.playing) return;
@@ -713,7 +713,7 @@ let rec = null, lastVideo = null;
 const MIMES = ['video/mp4;codecs=avc1,mp4a.40.2', 'video/mp4', 'video/webm;codecs=vp9,opus', 'video/webm;codecs=vp8,opus', 'video/webm'];
 const IN_APP = /KAKAOTALK|NAVER\(inapp|Instagram|FBAN|FBAV|Line\/|DaumApps/i.test(navigator.userAgent);
 function vmsg(t){ $('vst').textContent = t; $('vst').hidden = !t; }
-function vidBtnReset(){ $('vid').disabled = false; $('vid').textContent = '🎬 영상 저장'; }
+function vidBtnReset(){ $('vid').disabled = false; $('vid').textContent = '🎬 Re-record'; }
 function failRec(t){
   if (rec){ rec.aborted = true; try { if (rec.mr && rec.mr.state !== 'inactive') rec.mr.stop(); } catch (e){} rec = null; }
   vidBtnReset(); vmsg(t);
